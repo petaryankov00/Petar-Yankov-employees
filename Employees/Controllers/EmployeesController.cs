@@ -79,7 +79,7 @@ namespace Employees.Controllers
             }
 
 			//If there is header in the file.
-			//return result.Skip(1),.ToList();
+			//return result.Skip(1).ToList();
 			return result.ToList();
         }
 
