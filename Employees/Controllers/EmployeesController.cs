@@ -23,6 +23,10 @@ namespace Employees.Controllers
 		[Route("get-longest-pair")]
 		public IActionResult GetEmployeesForLongestPeriodOfTime([FromForm] IFormFile document)
 		{
+			if (document.ContentType != "text/csv")
+			{
+				return this.BadRequest("Please select csv file.");
+			}
 			try
 			{
                 var employeeProjects = this.ConvertFileToObject(document);
@@ -41,6 +45,10 @@ namespace Employees.Controllers
 		[Route("get-employeeProjects")]
 		public IActionResult GetEmployeeProjects([FromForm] IFormFile document)
 		{
+						if (document.ContentType != "text/csv")
+			{
+				return this.BadRequest("Please select csv file.");
+			}
 			try
 			{
                 var employeeProjects = this.ConvertFileToObject(document);
@@ -68,8 +76,10 @@ namespace Employees.Controllers
                 {
                     result.Add(stream.ReadLine());
                 }
-            }		//If there is header line in the csv file.
-	    		//return result.Skip(1).ToList();
+            }
+
+			//If there is header in the file.
+			//return result.Skip(1),.ToList();
 			return result.ToList();
         }
 
