@@ -11,3 +11,11 @@ npm install
 ```sh
 npm run dev
 ```
+
+## Ports
+```sh
+Server:
+Check launchSetting.json for available running ports.
+Client:
+Running on port 5173.
+```
