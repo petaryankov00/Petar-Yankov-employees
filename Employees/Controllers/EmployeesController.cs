@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Employees.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
@@ -68,7 +68,8 @@ namespace Employees.Controllers
                 {
                     result.Add(stream.ReadLine());
                 }
-            }
+            }		//If there is header line in the csv file.
+	    		//return result.Skip(1).ToList();
 			return result.ToList();
         }
 
